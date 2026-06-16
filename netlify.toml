@@ -1,0 +1,22 @@
+# Netlify configuration for the Earl of Derby site
+[build]
+  publish = "."
+
+# Pretty URLs: /hotel instead of /hotel.html
+[[redirects]]
+  from = "/hotel"
+  to = "/hotel.html"
+  status = 200
+[[redirects]]
+  from = "/wine-bar"
+  to = "/wine-bar.html"
+  status = 200
+[[redirects]]
+  from = "/cafe"
+  to = "/cafe.html"
+  status = 200
+
+[[headers]]
+  for = "/assets/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
