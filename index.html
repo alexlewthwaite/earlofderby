@@ -115,50 +115,12 @@
     animation:rise .9s cubic-bezier(.2,.7,.2,1) .15s forwards;
   }
 
-  .stag{
-    width:clamp(46px,7vw,68px);
+  .hero-logo{
+    width:clamp(180px,28vw,320px);
     height:auto;
     display:block;
-    margin:0 auto clamp(.8rem,2vh,1.3rem);
-  }
-  .stag path,.stag line{
-    stroke:var(--gilt-soft);
-    stroke-width:5;
-    stroke-linecap:round;
-    stroke-linejoin:round;
-    fill:none;
-  }
-
-  .wordmark{
-    font-family:'Fraunces',serif;
-    font-optical-sizing:144;
-    font-weight:400;
-    letter-spacing:.14em;
-    font-size:clamp(1.7rem,4.4vw,3rem);
-    line-height:1;
-    color:var(--paper);
-    display:flex;
-    align-items:baseline;
-    justify-content:center;
-    gap:.34em;
-  }
-  .wordmark .of{
-    font-style:italic;
-    font-weight:300;
-    letter-spacing:.04em;
-    font-size:.46em;
-    color:var(--gilt-soft);
-    transform:translateY(-.18em);
-  }
-
-  .rule{
-    width:min(280px,46vw);
-    height:1px;
-    background:var(--gilt);
-    margin:clamp(1rem,2.4vh,1.5rem) auto clamp(.7rem,1.8vh,1.1rem);
-    transform:scaleX(0);
-    transform-origin:center;
-    animation:draw 1s cubic-bezier(.2,.7,.2,1) .55s forwards;
+    margin:0 auto clamp(1rem,2.4vh,1.6rem);
+    filter:drop-shadow(0 2px 12px rgba(0,0,0,.3));
   }
 
   .place{
@@ -167,7 +129,7 @@
     text-transform:uppercase;
     color:var(--cream-dim);
     font-weight:400;
-    padding-left:.42em; /* optical balance for tracking */
+    padding-left:.42em;
   }
 
   /* ---------- the three routes ---------- */
@@ -332,20 +294,7 @@
       <div class="hero-overlay"></div>
 
       <header class="brand">
-        <svg class="stag" viewBox="0 0 120 120" aria-hidden="true">
-          <path d="M60 70 L60 40"/>
-          <path d="M60 48 C54 40 50 36 40 34 C46 30 40 22 34 22 C40 28 30 30 26 24 C30 34 38 34 44 40 C40 46 48 50 54 52"/>
-          <path d="M60 48 C66 40 70 36 80 34 C74 30 80 22 86 22 C80 28 90 30 94 24 C90 34 82 34 76 40 C80 46 72 50 66 52"/>
-          <path d="M60 44 C57 38 56 34 58 28 M60 44 C63 38 64 34 62 28"/>
-          <path d="M48 60 C48 54 54 50 60 50 C66 50 72 54 72 60 C72 70 68 84 60 92 C52 84 48 70 48 60 Z"/>
-          <path d="M48 60 C42 58 38 60 36 64 M72 60 C78 58 82 60 84 64"/>
-          <line x1="55" y1="64" x2="55" y2="64.5"/>
-          <line x1="65" y1="64" x2="65" y2="64.5"/>
-        </svg>
-
-        <div class="wordmark">EARL <span class="of">of</span> DERBY</div>
-        <div class="rule"></div>
-        <div class="place">Castletown · Isle of Man</div>
+        <img class="hero-logo" src="assets/img/logo-light.png" alt="Earl of Derby">
       </header>
 
       <div class="hero-pips"></div>

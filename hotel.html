@@ -40,11 +40,8 @@
 
   /* header */
   header{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:.9rem clamp(1.2rem,4vw,3rem);background:rgba(20,42,61,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--hairline)}
-  .brand-lockup{display:flex;align-items:center;gap:.7rem;text-decoration:none}
-  .brand-lockup .stag{width:30px;height:auto}
-  .brand-lockup .stag path,.brand-lockup .stag line{stroke:var(--gilt-soft);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;fill:none}
-  .brand-lockup .wm{font-family:'Fraunces',serif;font-weight:400;color:var(--paper);font-size:1.02rem;letter-spacing:.16em}
-  .brand-lockup .wm .of{font-style:italic;font-weight:300;font-size:.7em;color:var(--gilt-soft);margin:0 .12em}
+  .brand-lockup{display:flex;align-items:center;text-decoration:none}
+  .brand-lockup .nav-logo{height:32px;width:auto}
   nav.main{display:flex;align-items:center;gap:clamp(1rem,2.4vw,2.2rem)}
   nav.main a{color:var(--cream-dim);text-decoration:none;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;transition:color .3s ease}
   nav.main a:hover,nav.main a.active{color:var(--paper)}
@@ -151,13 +148,7 @@
   <!-- HEADER -->
   <header>
     <a class="brand-lockup" href="index.html" aria-label="Earl of Derby — home">
-      <svg class="stag" viewBox="0 0 120 120" aria-hidden="true">
-        <path d="M60 70 L60 40"/>
-        <path d="M60 48 C54 40 50 36 40 34 C46 30 40 22 34 22 C40 28 30 30 26 24 C30 34 38 34 44 40 C40 46 48 50 54 52"/>
-        <path d="M60 48 C66 40 70 36 80 34 C74 30 80 22 86 22 C80 28 90 30 94 24 C90 34 82 34 76 40 C80 46 72 50 66 52"/>
-        <path d="M48 60 C48 54 54 50 60 50 C66 50 72 54 72 60 C72 70 68 84 60 92 C52 84 48 70 48 60 Z"/>
-      </svg>
-      <span class="wm">EARL<span class="of">of</span>DERBY</span>
+      <img class="nav-logo" src="assets/img/logo-stag-light.png" alt="Earl of Derby">
     </a>
     <nav class="main">
       <a href="hotel.html" class="active">Hotel</a>
