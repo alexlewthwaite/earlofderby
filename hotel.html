@@ -41,7 +41,7 @@
   /* header */
   header{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:.9rem clamp(1.2rem,4vw,3rem);background:rgba(20,42,61,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--hairline)}
   .brand-lockup{display:flex;align-items:center;text-decoration:none}
-  .brand-lockup .nav-logo{height:32px;width:auto}
+  .brand-lockup .nav-logo{height:18px;width:auto}
   nav.main{display:flex;align-items:center;gap:clamp(1rem,2.4vw,2.2rem);margin-left:auto;margin-right:clamp(1.2rem,2.4vw,2.2rem)}
   nav.main a{color:var(--cream-dim);text-decoration:none;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;transition:color .3s ease}
   nav.main a:hover,nav.main a.active{color:var(--paper)}
@@ -63,6 +63,8 @@
   .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(14,31,46,.85),rgba(14,31,46,.15) 55%,rgba(14,31,46,.35))}
   .hero-inner{position:relative;z-index:2;padding:clamp(2rem,6vw,4.5rem);max-width:780px}
   .hero h1{font-size:clamp(2.8rem,8vw,5.5rem);color:var(--paper);margin:.5rem 0 1rem}
+  .hero-wordmark{display:block;width:clamp(220px,42vw,420px);height:auto;margin-bottom:.4rem}
+  .hero h1 .venue-name{display:block;font-family:'Nomark',serif;font-size:clamp(1.4rem,3.6vw,2.6rem);letter-spacing:.18em;text-transform:uppercase;-webkit-text-stroke:0;font-weight:400;margin-top:.2rem}
   .hero p{font-size:clamp(1rem,1.6vw,1.18rem);color:var(--cream-dim);max-width:52ch;margin-bottom:1.8rem;font-weight:300}
   .hero .eyebrow{color:var(--gilt-soft)}
 
@@ -148,7 +150,7 @@
   <!-- HEADER -->
   <header>
     <a class="brand-lockup" href="index.html" aria-label="Earl of Derby — home">
-      <img class="nav-logo" src="assets/img/logo-stag-light.png" alt="Earl of Derby">
+      <img class="nav-logo" src="assets/img/wordmark-light.png" alt="Earl of Derby">
     </a>
     <nav class="main">
       <a href="hotel.html" class="active">Hotel</a>
@@ -168,7 +170,7 @@
     <img class="hero-img" src="assets/img/eod-005.jpg" alt="">
     <div class="hero-inner">
       <span class="eyebrow">Stay</span>
-      <h1>Earl of Derby Hotel</h1>
+      <h1><img class="hero-wordmark" src="assets/img/wordmark-light.png" alt="Earl of Derby"><span class="venue-name">Hotel</span></h1>
       <p>From snug eaves to sweeping views of Castle Rushen, our four suites each have their own personality — bound together by Earl of Derby charm, little luxuries, and the sort of comfort that makes leaving the hardest part.</p>
       <a class="btn" href="https://bookdirect.prenohq.com/inst/#home?propertyId=902IjR75amwgXNCLJOeiqY7pHjpVEmDpVbcp8KhZlqZOxL9j4mU0MzcyMiI=&amp;JDRN=Y" target="_blank" rel="noopener">Book a suite <span class="arrow">→</span></a>
     </div>
