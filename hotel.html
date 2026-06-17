@@ -8,6 +8,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Jost:wght@300;400;500&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+  @font-face{
+    font-family:'Nomark';
+    src:url('assets/fonts/nomark.woff2') format('woff2');
+    font-weight:400;
+    font-style:normal;
+    font-display:swap;
+  }
   :root{
     --ink:#142A3D;
     --ink-deep:#0E1F2E;
@@ -26,7 +33,10 @@
   body{background:var(--paper);color:var(--ink);font-family:'Jost',sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.6}
 
   .eyebrow{font-family:'Jost',sans-serif;font-size:.72rem;font-weight:400;letter-spacing:.4em;text-transform:uppercase;color:var(--gilt);padding-left:.4em}
-  h1,h2,h3{font-family:'Outfit',sans-serif;font-weight:700;line-height:1.05;letter-spacing:-.01em}
+  h1,h2,h3{font-family:'Nomark',serif;font-weight:400;font-style:normal;line-height:1.15;letter-spacing:.02em}
+  h1{-webkit-text-stroke:.8px currentColor}
+  h2{-webkit-text-stroke:.5px currentColor}
+  h3{-webkit-text-stroke:.3px currentColor}
 
   /* header */
   header{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:.9rem clamp(1.2rem,4vw,3rem);background:rgba(20,42,61,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--hairline)}
@@ -108,7 +118,8 @@
   .foot-col a{color:var(--cream-dim);text-decoration:none}
   .foot-col a:hover{color:var(--paper)}
   .foot-nav{display:flex;flex-direction:column;gap:.7rem}
-  .foot-nav a{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;transition:color .3s}
+  .foot-nav a{color:var(--cream-dim);text-decoration:none;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;transition:color .3s}
+  .foot-nav a:hover{color:var(--paper)}
   .copyright{width:100%;text-align:center;margin-top:2.4rem;padding-top:1.6rem;border-top:1px solid rgba(185,163,106,.2);font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(236,235,226,.4)}
 
   .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}

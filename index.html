@@ -8,6 +8,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Jost:wght@300;400;500&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
 <style>
+  @font-face{
+    font-family:'Nomark';
+    src:url('assets/fonts/nomark.woff2') format('woff2');
+    font-weight:400;
+    font-style:normal;
+    font-display:swap;
+  }
   :root{
     --ink:#142A3D;
     --ink-deep:#0E1F2E;
@@ -37,16 +44,72 @@
     min-height:100dvh;
     display:flex;
     flex-direction:column;
-    /* faint warm vignette so the navy isn't flat */
-    background:
-      radial-gradient(120% 80% at 50% -10%, rgba(176,140,79,.10), transparent 60%),
-      radial-gradient(140% 120% at 50% 120%, var(--ink-deep), var(--ink) 55%);
   }
+
+  /* ---------- hero carousel ---------- */
+  .hero{
+    position:relative;
+    width:100%;
+    height:70vh;
+    height:70dvh;
+    min-height:420px;
+    overflow:hidden;
+  }
+
+  .hero-slide{
+    position:absolute;
+    inset:0;
+    opacity:0;
+    transition:opacity 1.2s ease;
+  }
+  .hero-slide.active{opacity:1}
+
+  .hero-slide img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+
+  .hero-overlay{
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(to bottom, rgba(14,31,46,.45) 0%, rgba(14,31,46,.15) 40%, rgba(14,31,46,.55) 100%);
+    z-index:1;
+  }
+
+  .hero-pips{
+    position:absolute;
+    bottom:1.5rem;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:3;
+    display:flex;
+    gap:.6rem;
+  }
+  .hero-pip{
+    width:8px;height:8px;
+    border-radius:50%;
+    border:1.5px solid var(--paper);
+    background:transparent;
+    cursor:pointer;
+    transition:background .3s ease;
+    padding:0;
+  }
+  .hero-pip.active{background:var(--gilt)}
 
   /* ---------- brand lockup ---------- */
   .brand{
+    position:absolute;
+    inset:0;
+    z-index:2;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
     text-align:center;
-    padding:clamp(2.4rem,6vh,4.5rem) 1.5rem clamp(1.6rem,4vh,2.6rem);
+    padding:1.5rem;
     opacity:0;
     transform:translateY(14px);
     animation:rise .9s cubic-bezier(.2,.7,.2,1) .15s forwards;
@@ -160,11 +223,13 @@
   }
 
   .venue{
-    font-family:'Outfit',sans-serif;
-    font-weight:700;
+    font-family:'Nomark',serif;
+    font-weight:400;
+    font-style:normal;
     font-size:clamp(1.9rem,3.2vw,2.9rem);
-    line-height:1.05;
-    letter-spacing:-.01em;
+    line-height:1.15;
+    letter-spacing:.02em;
+    -webkit-text-stroke:.5px currentColor;
     margin-bottom:1.4rem;
   }
   .venue small{
@@ -245,6 +310,7 @@
 
   /* ---------- responsive ---------- */
   @media (max-width:760px){
+    .hero{height:55vh;min-height:320px}
     .routes{flex-direction:column;border-top:1px solid var(--hairline)}
     .route{padding:clamp(1.4rem,3.4vh,2.2rem) 1.6rem}
     .route + .route{border-left:none;border-top:1px solid var(--hairline)}
@@ -257,27 +323,33 @@
 <body>
   <main class="gateway">
 
-    <header class="brand">
-      <!-- Placeholder stag mark — swap for the in-house logo -->
-      <svg class="stag" viewBox="0 0 120 120" aria-hidden="true">
-        <!-- antlers -->
-        <path d="M60 70 L60 40"/>
-        <path d="M60 48 C54 40 50 36 40 34 C46 30 40 22 34 22 C40 28 30 30 26 24 C30 34 38 34 44 40 C40 46 48 50 54 52"/>
-        <path d="M60 48 C66 40 70 36 80 34 C74 30 80 22 86 22 C80 28 90 30 94 24 C90 34 82 34 76 40 C80 46 72 50 66 52"/>
-        <path d="M60 44 C57 38 56 34 58 28 M60 44 C63 38 64 34 62 28"/>
-        <!-- head -->
-        <path d="M48 60 C48 54 54 50 60 50 C66 50 72 54 72 60 C72 70 68 84 60 92 C52 84 48 70 48 60 Z"/>
-        <!-- ears -->
-        <path d="M48 60 C42 58 38 60 36 64 M72 60 C78 58 82 60 84 64"/>
-        <!-- eyes -->
-        <line x1="55" y1="64" x2="55" y2="64.5"/>
-        <line x1="65" y1="64" x2="65" y2="64.5"/>
-      </svg>
+    <section class="hero">
+      <div class="hero-slide active"><img src="assets/img/eod-003.jpg" alt="The Charles Suite"></div>
+      <div class="hero-slide"><img src="assets/img/eod-035.jpg" alt="The Wine Bar"></div>
+      <div class="hero-slide"><img src="assets/img/eod-020.jpg" alt="The William Suite"></div>
+      <div class="hero-slide"><img src="assets/img/eod-038.jpg" alt="The Café"></div>
+      <div class="hero-slide"><img src="assets/img/eod-036.jpg" alt="The Bar"></div>
+      <div class="hero-overlay"></div>
 
-      <div class="wordmark">EARL <span class="of">of</span> DERBY</div>
-      <div class="rule"></div>
-      <div class="place">Castletown · Isle of Man</div>
-    </header>
+      <header class="brand">
+        <svg class="stag" viewBox="0 0 120 120" aria-hidden="true">
+          <path d="M60 70 L60 40"/>
+          <path d="M60 48 C54 40 50 36 40 34 C46 30 40 22 34 22 C40 28 30 30 26 24 C30 34 38 34 44 40 C40 46 48 50 54 52"/>
+          <path d="M60 48 C66 40 70 36 80 34 C74 30 80 22 86 22 C80 28 90 30 94 24 C90 34 82 34 76 40 C80 46 72 50 66 52"/>
+          <path d="M60 44 C57 38 56 34 58 28 M60 44 C63 38 64 34 62 28"/>
+          <path d="M48 60 C48 54 54 50 60 50 C66 50 72 54 72 60 C72 70 68 84 60 92 C52 84 48 70 48 60 Z"/>
+          <path d="M48 60 C42 58 38 60 36 64 M72 60 C78 58 82 60 84 64"/>
+          <line x1="55" y1="64" x2="55" y2="64.5"/>
+          <line x1="65" y1="64" x2="65" y2="64.5"/>
+        </svg>
+
+        <div class="wordmark">EARL <span class="of">of</span> DERBY</div>
+        <div class="rule"></div>
+        <div class="place">Castletown · Isle of Man</div>
+      </header>
+
+      <div class="hero-pips"></div>
+    </section>
 
     <nav class="routes" aria-label="Choose a venue">
 
@@ -304,5 +376,40 @@
     <footer class="foot">© Picaro Limited 2026</footer>
 
   </main>
+<script>
+(function(){
+  const slides = document.querySelectorAll('.hero-slide');
+  const pipsWrap = document.querySelector('.hero-pips');
+  let cur = 0, timer;
+
+  slides.forEach((_,i) => {
+    const pip = document.createElement('button');
+    pip.className = 'hero-pip' + (i === 0 ? ' active' : '');
+    pip.setAttribute('aria-label', 'Show image ' + (i+1));
+    pip.addEventListener('click', () => goTo(i));
+    pipsWrap.appendChild(pip);
+  });
+
+  const pips = pipsWrap.querySelectorAll('.hero-pip');
+
+  function goTo(n){
+    slides[cur].classList.remove('active');
+    pips[cur].classList.remove('active');
+    cur = n;
+    slides[cur].classList.add('active');
+    pips[cur].classList.add('active');
+    resetTimer();
+  }
+
+  function next(){ goTo((cur + 1) % slides.length); }
+
+  function resetTimer(){
+    clearInterval(timer);
+    timer = setInterval(next, 5000);
+  }
+
+  resetTimer();
+})();
+</script>
 </body>
 </html>
